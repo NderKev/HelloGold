@@ -6,7 +6,7 @@ var Web3 = require('web3');
 const HelloGold = require('./libs/HelloGold')
 const provider = require('./libs/provider');
 const cors = require('cors')
-const lib = require('./util/lib')
+//const lib = require('./util/lib')
 const Tx = require('ethereumjs-tx')
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
