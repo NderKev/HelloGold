@@ -45,7 +45,7 @@
         if (typeof account !== 'undefined') {
 
               web3.eth.getBalance(account, function(err, balance){
-                $(".bc-bal-amount").text(Math.round(web3.fromWei(balance) * 10000)/10000);
+                $("#inputEtherBalance").text(Math.round(web3.fromWei(balance) * 10000)/10000);
                 console.log("User's ETH balance is" + " "  + web3.fromWei(balance));
               });
 
@@ -244,14 +244,14 @@ $(document).ready(function(){
 
                             <div class="col-md-6">
                               <div class="material-input">
-                                <input class="input-item" type="text" id="input">
+                                <input class="input-item" type="text" id="inputInvestedEthBalance">
                                 <label>Invested Ether Balance</label>
                                 <span class="bar"></span>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="material-input">
-                                <input class="input-item" type="text"  id="inputInvestedEthBalance">
+                                <input class="input-item" type="text"  id="inputEtherBalance">
                                 <label>Ether Balance</label>
                                 <span class="bar"></span>
                               </div>
@@ -319,7 +319,11 @@ $('#btn-check-balance').click(function() {
       $.post("http://localhost:9000//HelloGold/checkUserBalance", {
         address : address
 
-	});
+	}).then(function(result) {
+    document.getElementById("inputInvestedEthBalance").innerHTML = result.ethBalance;
+    document.getElementById("inputEtherBalance").innerHTML = result.TotalEthBalance;
+  };
+
      }
      catch(err){
        alert(err.message);
