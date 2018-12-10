@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blockchain Test</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:domain" content="">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" href="" sizes="120x120">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- aos-js -->
+    <script type="text/javascript" src="js/libs/aos.min.js"></script>
+
+     <script>
+
+    </script>
+    <script type="text/javascript">
+  window.addEventListener("load", function() {
+
+      if (typeof web3 !== 'undefined') {
+
+        window.web3 = new Web3(web3.currentProvider);
+        var account = web3.eth.accounts[0];
+        document.getElementById("lbltipAddedComment").innerHTML=account;
+        $("#userAddress_attr").data('userAddress', account)
+        if (typeof account !== 'undefined') {
+
+              web3.eth.getBalance(account, function(err, balance){
+                $(".bc-bal-amount").text(Math.round(web3.fromWei(balance) * 10000)/10000);
+                console.log("User's ETH balance is" + " "  + web3.fromWei(balance));
+              });
+
+              // BalancePromise(account)
+        } else {
+          alert("Please unlock your metamask")
+        }
+      } else {
+        alert('No web3? You should consider trying MetaMask!')
+      }
+});
+console.log(web3.eth.accounts[0]);
+
+
+$(document).ready(function(){
+  // $("#btn1").click(function(){
+  //     alert("Text: " + $("#test").text());
+  // });
+  // $("#btn2").click(function(){
+  //     alert("HTML: " + $("#test").html());
+  // });
+  // add by santo
+
+});
+
+</script>
+  </head>
+  <body>
+  	 <header>
+
+  	     </header>    <main>
+      <div class="bc-side-nav-wrapper">
+        <div class="bc-sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="bc-logo">
+                <a href="#" class="bc-simple-text">
+                    <img src="images/blockchainlogo.svg" alt="">
+                </a>
+            </div>
+            <div class="bc-sidebar-wrapper">
+                <ul class="bc-nav">
+                    <li class="bc-active">
+                        <a href="dashboard.html">
+                            <i class="fa fa-home" aria-hidden="true" ></i>Dashboard
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+      </div>
+
+      <div class="bc-main-content-wrapper">
+
+
+        <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <div class="bc-card-header bc-new-nav" data-background-color="green">
+                        <h4 class="title">
+                         HelloGOld Blockchain Test
+                        </h4>
+        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell bc-notification-icon" aria-hidden="true"></i>
+                                    <span class="notification">5</span>
+                                    <p class="hidden-lg hidden-md">Notifications</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user-circle bc-notification-icon bc-icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="bc-content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="material-form">
+                      <div class="bc-card-header" data-background-color="purple">
+                        <h4 class="title">
+                          Main Page
+                        </h4>
+                      </div>
+                      <div class="bc-card-content">
+                        <div class="bc-container">
+
+                          <div class="row">
+                            <p>
+                              Deposit Funds
+                            </p>
+                            <div class="col-md-12">
+                              <div class="material-input">
+                                <input class="input-item" type="text" required id="inputFunds">
+                                <label>Amount</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+                           <div class="col-md-12">
+                              <div class="material-input">
+                                <input class="input-item" type="text" required id="inputAddress">
+                                <label>Address</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="bc-different pull-right">
+                            <button type="submit" class="bc-btn bc-btn-add-new" id="btn-Deposit-Funds"> Deposit
+                            </button>
+                          </div>
+
+                          <br> <br>
+
+                          <hr>
+                      </form>
+                     <form class="material-form">
+                         <p class="bc-title-input">
+                              Claim Refund
+                            </p>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="material-input">
+                                <input class="input-item" type="text"  required id="input-field-amount">
+                                <label>Amount</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="material-input">
+                                <input class="input-item" type="text" required id="input-field-address">
+                                <label>Address</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button type="submit" class="bc-btn bc-btn-default bc-spacer-b-m-40 pull-right" id="btn-claim-refund">Submit
+                            <div class="ripple-container"></div>
+                          </button>
+
+                          <br> <br>
+
+                          <hr>
+                          </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bc-content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="material-form">
+                      <div class="bc-card-header" data-background-color="purple">
+                        <h4 class="title">
+                          check Balances
+                        </h4>
+                      </div>
+                      <div class="bc-card-content">
+                        <div class="bc-container">
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="material-input">
+                                <input class="input-item" type="text" required id="input-user-address">
+                                <label>Address</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+                            <button type="submit" class="bc-btn bc-btn-default bc-spacer-b-m-40 pull-right" id ="btn-check-balance">CheckBalance
+                              <div class="ripple-container"></div>
+                            </button>
+
+                            <div class="col-md-6">
+                              <div class="material-input">
+                                <input class="input-item" type="text" id="input">
+                                <label>Invested Ether Balance</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="material-input">
+                                <input class="input-item" type="text"  id="inputInvestedEthBalance">
+                                <label>Ether Balance</label>
+                                <span class="bar"></span>
+                              </div>
+                            </div>
+
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+
+    </main>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/bundle.js"></script>
+    <script>
+    const BASE_URL = 'http://localhost:9000'
+
+    $(document).ready(function() {
+    $('#btn-Deposit-Funds').click(function() {
+      var amount = $('#inputFunds').val();
+      var sender  = $('#inputAddress').val();
+   try{
+    $.post("http://localhost:9000//HelloGold/depositFunds", {
+        amount :amount,
+        sender : sender
+
+	});
+  catch(err){
+    alert(err.message);
+  }
+        });
+$('#btn-claim-refund').click(function() {
+    //var emailreset = document.getElementById("email-reset").value;
+    try{
+    var amount = $('#input-field-amount').val();
+
+    var sender  = $('#inputA-field-address').val();
+
+    $.post("http://localhost:9000//HelloGold/claimRefund", {
+      amount : amount,
+      sender : sender
+
+	});
+    }
+    catch(err){
+      alert(err.message);
+      alert("OOPS seems like There's an Error");
+    }
+});
+
+$('#btn-check-balance').click(function() {
+    //var emailreset = document.getElementById("email-reset").value;
+    var address = $('#input-user-address').val();
+
+
+     try{
+      $.post("http://localhost:9000//HelloGold/checkUserBalance", {
+        address : address
+
+	});
+     }
+     catch(err){
+       alert(err.message);
+        //alert("You are not authorized to perform this Action");
+     }
+});
+});
+    </script>
+    <script>
+    AOS.init();
+    </script>
+      <footer class="clearfix bc-main-footer-wrapper">
+      	<div class="bc-footer-wrapper bc-footer-a ">
+      	</div>
+
+      	<div class="bc-footer-wrapper bc-footer-b">
+      	</div>
+      </footer>  </body>
+</html>
